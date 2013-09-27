@@ -1,4 +1,17 @@
 Jailbird::Application.routes.draw do
+
+
+  resources :contacts, only:[:index, :create, :new]
+  root :to => 'contacts#index'
+
+  # resources :api, only:[:index]
+
+
+  match '/api/calls', to: 'api#calls'
+  match '/api/group_sms', to: 'api#group_sms'
+  match '/api/phonebook', to: 'api#phonebook'
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +61,6 @@ Jailbird::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 
