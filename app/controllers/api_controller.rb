@@ -17,7 +17,7 @@ class ApiController < ActionController::Base
   end
 
   def jailbird_pin
-    user = User.where(phone_number: params[:phone], jailbird_pin: params["Digits"])
+    user = User.where(phone_number: params[:phone], jailbird_pin: params["Digits"]).first
     if user.count == 1
       @user_id = user.first.id
       render 'ivr.xml.builder'
@@ -117,7 +117,7 @@ class ApiController < ActionController::Base
       CLIENT.account.calls.create(
         :from => "+14807252473",
         :to => num,
-        :url => "http://safe-sands-5044.herokuapp.com/api/sending_voice_message/?recording=#{recording}"
+        :url => "/api/sending_voice_message/?recording=#{recording}"
         )
     end
   end
