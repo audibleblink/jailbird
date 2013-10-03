@@ -72,7 +72,7 @@ class ApiController < ActionController::Base
   end
 
   def transcribe_call
-    group = Group.find(params[:group])
+    group = Group.find(params[:group_id])
     group_sms(group, params[:TranscriptionText])
   end
 
@@ -102,7 +102,7 @@ class ApiController < ActionController::Base
   end
 
   def voice_broadcasting
-    group = Group.find(1)
+    group = Group.find(params[:group_id])
     recording_url = params[:RecordingUrl]
     group_voice(group, recording_url)
   end
