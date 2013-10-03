@@ -22,6 +22,7 @@ gem 'pg'
 #   gem "selenium-webdriver"  # Firefox (opens window)
 #   #gem "capybara-webkit"     # Chrome / Safari (headless)
 #   gem "guard-rspec"
+#   gem 'simplecov', :require => false
 # end
 
 group :assets do

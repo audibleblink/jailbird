@@ -17,7 +17,7 @@ class ApiController < ActionController::Base
   end
 
   def jailbird_pin
-    user = User.where(phone_number: params[:phone], jailbird_pin: params["Digits"]).first
+    user = User.where(phone_number: params[:phone], jailbird_pin: params["Digits"])
     if user.count == 1
       @user_id = user.first.id
       render 'ivr.xml.builder'
@@ -72,7 +72,7 @@ class ApiController < ActionController::Base
   end
 
   def transcribe_call
-    group = Group.find(params[:group_id])
+    group = Group.find(params[:group])
     group_sms(group, params[:TranscriptionText])
   end
 
@@ -83,6 +83,7 @@ class ApiController < ActionController::Base
 
   def group_sms(group, text)
     friends = {}
+    group = Group.find(group)
     group.contacts.each do |contact|
       friends[contact.name] = contact.phone_number
     end
@@ -102,22 +103,22 @@ class ApiController < ActionController::Base
   end
 
   def voice_broadcasting
-    group = Group.find(params[:group_id])
+    group = params[:group]
     recording_url = params[:RecordingUrl]
     group_voice(group, recording_url)
   end
 
   def group_voice(group, recording)
     friends = {}
+    group = Group.find(group)
     group.contacts.each do |contact|
       friends[contact.name] = contact.phone_number
     end
-
-    friends.each do |name,num|
+    friends.each do |name, num|
       CLIENT.account.calls.create(
         :from => "+14807252473",
         :to => num,
-        :url => "/api/sending_voice_message/?recording=#{recording}"
+        :url => "http://jailbirdapp.com/api/sending_voice_message/?recording=#{recording}"
         )
     end
   end
