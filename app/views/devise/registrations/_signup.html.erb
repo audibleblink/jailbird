@@ -1,3 +1,4 @@
+<div id="start">
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 <div><%= f.label :email %><br />
   <%= f.email_field :email, :autofocus => true, :placeholder => "email" %>
@@ -16,3 +17,4 @@
 <% end %>
 
 <%= button_to "or Login", new_user_session_path, :class => "flipper" %>
+</div>

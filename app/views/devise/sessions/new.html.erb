@@ -1,4 +1,4 @@
-<div class="signin">
+<div id="start">
 <h2>Sign in</h2>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
@@ -19,3 +19,5 @@
 
 <%= link_to "Sign Up", root_path %>
 </div>
+<script type="text/javascript">$('nav').hide()</script>
+
