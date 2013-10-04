@@ -54,7 +54,7 @@
 }
 
 
-#start input[type=text], #start input[type=password] {
+#start input[type=text], #start input[type=password], #start input[type=email] {
   height: 25px;
   width: 150px;
   font-size: 14px;

@@ -4,13 +4,14 @@ function page (e) {
 	var match = /\d+$/
 	var pageNumber = match.exec(link)
 
-	console.log('I was clicked!')
 	$.ajax({
 		url: 'paginate/groups?page='+pageNumber,
-    type: 'get',
+    type: 'get'
 	})
 	.done(function(response) {
-		$('#groups_paginate').html(response);
+		var $thingToPass = $('#groups_paginate')
+		$thingToPass.html(response);
+		droppingContacts($thingToPass.find('.group'))
 	});
 }
 

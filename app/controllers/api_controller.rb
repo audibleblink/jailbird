@@ -120,7 +120,7 @@ class ApiController < ActionController::Base
       CLIENT.account.calls.create(
         :from => "+14807252473",
         :to => num,
-        :url => "http://http://223929f4.ngrok.com/api/sending_voice_message/?recording=#{recording}"
+        :url => "http://jailbirdapp.com/api/sending_voice_message/?recording=#{recording}"
         )
     end
   end
