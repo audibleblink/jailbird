@@ -49,8 +49,7 @@ function setListeners(){
   $('#modalBox').on('click', 'a', editGroup)
   modalStarter();
   draggingContacts($('.group'))
-  droppingContacts() 
-
+  droppingContacts()
 }
 
 $(document).ready(function(){
