@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 gem "rspec-rails", :group => [:test, :development]
 gem 'google-api-client'
@@ -24,6 +24,7 @@ gem 'pg'
 #   gem "guard-rspec"
 #   gem 'simplecov', :require => false
 # end
+
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

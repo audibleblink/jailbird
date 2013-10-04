@@ -5,6 +5,7 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'simplecov'
 
+
 SimpleCov.start
 # require File.dirname(__FILE__) + "/factories"
 

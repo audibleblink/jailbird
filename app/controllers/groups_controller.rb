@@ -18,7 +18,6 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @contacts = current_user.contacts
     render layout: false
-
   end
 
   def show
@@ -50,7 +49,7 @@ class GroupsController < ApplicationController
 
   def paginate
     @page = params[:page].to_i
-    @groups = current_user.groups.limit(3).offset(params[:page].to_i * 3)
+    @groups = current_user.groups.order('id').limit(3).offset(params[:page].to_i * 3)
     div, mod = ((current_user.groups.length).divmod(3))
     if div == 0
       @max_page = 0
